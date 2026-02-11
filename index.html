@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Siri Bngrm ❤️</title>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', cursive;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  margin-top: 20vh;
+}
+
+h1 {
+  color: #b30059;
+  font-size: 28px;
+}
+
+p {
+  color: #660033;
+  font-size: 18px;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 15px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#yesBtn {
+  background: #ff3366;
+  color: white;
+}
+
+#yesBtn:hover {
+  transform: scale(1.1);
+}
+
+#noBtn {
+  background: #ffcce0;
+  color: #b30059;
+  position: absolute;
+}
+
+#message {
+  display: none;
+  margin-top: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Siri Bngrm ❤️</h1>
+  <p>Will you be my Valentine?</p>
+
+  <button id="yesBtn" onclick="showLove()">Yes ❤️</button>
+  <button id="noBtn" onmouseover="moveButton()">No 💔</button>
+
+  <div id="message">
+    <h2>yay!! I know you say yes ❤️</h2>
+    <p>You just made me the happiest person ever 🥰</p>
+    <p>Now come here and give me a hug bngrm 🤗</p>
+  </div>
+</div>
+
+<script>
+function showLove() {
+  document.getElementById("message").style.display = "block";
+}
+
+function moveButton() {
+  var btn = document.getElementById("noBtn");
+  var x = Math.random() * (window.innerWidth - 100);
+  var y = Math.random() * (window.innerHeight - 50);
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
